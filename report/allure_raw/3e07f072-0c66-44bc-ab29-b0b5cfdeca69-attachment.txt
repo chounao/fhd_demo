@@ -1,0 +1,3 @@
+[2021-06-08 18:27:40,448][test_login.py 44][INFO]: 登录账号 {'userAccount': '18538049778', 'userPwd': 'qwer123456'} 登录，返回信息 为：1 ，104，期望结果0,0
+[2021-06-08 18:27:40,448][test_login.py 51][INFO]: 加载存储路径:E:\github\login_pytest_demo\data\cookies.yaml
+[2021-06-08 18:27:40,452][test_login.py 59][INFO]: 存储cookies数据到：E:\github\login_pytest_demo\data\cookies.yaml，存储内容为：{'JSESSIONID': '6CC33967E4502F7031049C16FEF756CA'}
