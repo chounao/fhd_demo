@@ -1,0 +1,3 @@
+[2021-06-04 16:42:04,828][test_login.py 48][INFO]: 登录失败：账号为{'userAccount': '18538049778', 'userPwd': 'qwer123456'}
+[2021-06-04 16:42:04,829][test_login.py 54][INFO]: 加载存储路径:C:\Users\Think\Desktop\fhd001-test\data\cookies.yaml
+[2021-06-04 16:42:04,833][test_login.py 62][INFO]: 存储cookies数据到：C:\Users\Think\Desktop\fhd001-test\data\cookies.yaml，存储内容为：{'JSESSIONID': '1A8711ACD5DA179F6E42F036E79034EA'}
