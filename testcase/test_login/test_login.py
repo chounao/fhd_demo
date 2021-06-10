@@ -11,6 +11,8 @@ from testcase.conftest import api_data
 '''先获取yaml文件的内容'''
 for key, vlue in api_data.items():
     if key == 'test_login':
+        print(key)
+        print(vlue)
         logger.info("获取的登录参数为：{}".format(vlue))
     body = vlue
 
@@ -21,7 +23,7 @@ def step_1(body):
 
 
 @allure.severity(allure.severity_level.NORMAL)
-@allure.epic("单个接口测试")
+@allure.epic("登录接口测试")
 @allure.feature("登录接口")
 class Test_login():
     @allure.story("用户登录")
@@ -42,21 +44,30 @@ class Test_login():
         data = json.loads(r.text)
         assert r.status_code == 200 and data['rcode'] == 0 and data["scode"] == 0
         logger.info("登录账号 {} 登录，返回信息 为：{} ，{}，期望结果{},{}".format(body,data['rcode'], data["scode"],0,0))
+        return r
 
 
+    @allure.story("存储cookies")
+    @allure.description("存储测试用例")
+    @allure.title("测试数据：{}".format("cookie"))
+    def test_get_cookies(self):
+        cookie = self.test_login().cookies
+        cookie = requests.utils.dict_from_cookiejar(cookie)  # 转换cookies格式
 
         '''获取路径存储cookies'''
         path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-        yamlpath = path + '\data\cookies.yaml'#获取路径c
+        yamlpath = path + '/data/cookies.yaml'#获取路径c
         logger.info("加载存储路径:{}".format(yamlpath))
-        cookie = requests.utils.dict_from_cookiejar(r.cookies)  # 转换cookies格式
-        # 存储cookies
+
+        """存储cookies"""
         cookies_value = {
             'cookies':cookie
         }
         with open (yamlpath,"w" ,encoding="utf-8")as f:
              yaml.dump(cookies_value,f,Dumper=yaml.Dumper)
+
         logger.info("存储cookies数据到：{}，存储内容为：{}".format(yamlpath,cookie))
+        assert yamlpath != None and len(yamlpath)!= 1
 
 # if __name__ == '__main__':
     #pytest.main(['-m', 'pytest', 'test_login.py', '--html=../HTML/login.html'])

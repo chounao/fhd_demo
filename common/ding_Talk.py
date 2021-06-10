@@ -9,26 +9,26 @@ import os
 
 
 from urllib3 import encode_multipart_formdata
-from Tool.Recyle.Waybill import recycle
+
 class DingDingWebHook():
     def __init__(self):
         self.url = 'https://oapi.dingtalk.com/robot/send?access_token=4ab68ffa05ae3f34189d8dd9cefdcac463e2851e166e0cf2e3aa506c966e1ceb'
         #self.data = recycle.cancelWaybillCode()
         self.access_token = '4ab68ffa05ae3f34189d8dd9cefdcac463e2851e166e0cf2e3aa506c966e1ceb'
         self.secret = 'SEC01cb9ebe4f3e2d45648e275fad4bc3ed35528d474a3f9fafb309a786f4455521'
-    def get_url(self):
-        timestamp = str(round(time.time() * 1000))
-        secret = self.secret
-        secret_enc = secret.encode('utf-8')
-        string_to_sign = '{}\n{}'.format(timestamp, secret)
-        string_to_sign_enc = string_to_sign.encode('utf-8')
-        hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
-        sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
-        # print(timestamp)
-        # print(sign)
-        url = self.url+'&timestamp='+timestamp+'&sign='+sign
-        # print(url)
-        return url
+    # def get_url(self):
+    #     timestamp = str(round(time.time() * 1000))
+    #     secret = self.secret
+    #     secret_enc = secret.encode('utf-8')
+    #     string_to_sign = '{}\n{}'.format(timestamp, secret)
+    #     string_to_sign_enc = string_to_sign.encode('utf-8')
+    #     hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+    #     sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+    #     # print(timestamp)
+    #     # print(sign)
+    #     url = self.url+'&timestamp='+timestamp+'&sign='+sign
+    #     # print(url)
+    #     return url
 
     # def get_token(self):
     #     params = {
@@ -87,20 +87,20 @@ class DingDingWebHook():
             },
             "msgtype": "actionCard"
         }
-        r = requests.post(self.get_url(), data=json.dumps(data), headers=headers)
+        r = requests.post(self.ur, data=json.dumps(data), headers=headers)
         print(r.text)
         return json.loads(r.text)
 
 
 
 
-    def get_urltext(self):
-        path = os.path.dirname(os.path.dirname(__file__))
-        yamlpath = path + 'HTML/login.html'
-
-        option = webdriver.ChromeOptions()
-        option.add_argument('--headless')
-        driver = webdriver.Chrome(chrome_options=option)
+    # def get_urltext(self):
+    #     path = os.path.dirname(os.path.dirname(__file__))
+    #     yamlpath = path + 'HTML/login.html'
+    #
+    #     option = webdriver.ChromeOptions()
+    #     option.add_argument('--headless')
+    #     driver = webdriver.Chrome(chrome_options=option)
 
 if __name__ == '__main__':
     a =DingDingWebHook()

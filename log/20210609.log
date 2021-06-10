@@ -1,0 +1,7 @@
+[2021-06-09 14:12:10,367][read_data.py 21][INFO]: 加载 E:\github\login_pytest_demo\data\api_test_data.yaml 文件......
+[2021-06-09 14:12:10,375][read_data.py 24][INFO]: 读到数据 ==>>  {'test_login': {'userAccount': '18538049779', 'userPwd': 'qwer123456'}} 
+[2021-06-09 14:12:10,375][conftest.py 14][INFO]: 获取yaml文件数据为：{'test_login': {'userAccount': '18538049779', 'userPwd': 'qwer123456'}}
+[2021-06-09 14:12:10,598][test_login.py 14][INFO]: 获取的登录参数为：{'userAccount': '18538049779', 'userPwd': 'qwer123456'}
+[2021-06-09 14:12:10,744][test_login.py 44][INFO]: 登录账号 {'userAccount': '18538049779', 'userPwd': 'qwer123456'} 登录，返回信息 为：0 ，0，期望结果0,0
+[2021-06-09 14:12:10,780][test_login.py 51][INFO]: 加载存储路径:E:\github\login_pytest_demo\data\cookies.yaml
+[2021-06-09 14:12:10,786][test_login.py 59][INFO]: 存储cookies数据到：E:\github\login_pytest_demo\data\cookies.yaml，存储内容为：{'fhd_expire': '1623219124', 'fhd_project': 'fhdportal', 'fhd_token': '%7EAVAHBQEGClhVCxgTcldHdwdDClVEcwETdAcdeHcdcF8WWAQUdQwWJF0cDQESIFsTd18WW1YTdg8QdgEcDw8QJApEdggSDAREJgARcw5HWwEXJApORHMBE3QGHQABHXBTFiAHFHZ0FiRdHA0BEiBbE3dfFltWE3YPEHYBHA8PECQKRHYIEgwERCYAEXMOR1sBFyQKRyQPEQ8CFnoAGgEZVwVTAAMGDAJTUBUEAQI%3D%7E1%7E', 'fhd_user_fhd_code': '139vxf', 'fhd_user_id': '44639912', 'fhd_user_nick': '%E5%A5%97%E5%A4%AA%E9%97%B9%E9%97%B9%E9%97%B9%E9%97%B9%E9%97%B9%E9%97%B9', 'fhd_user_no': '9', 'JSESSIONID': 'CEAECC2AA9AF970819F900567620B43A'}
